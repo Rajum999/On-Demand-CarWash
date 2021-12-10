@@ -1,20 +1,14 @@
 server:
   port: 8002
-  
 zuul:
-    routes:
-     Admin-service :
+  routes:
+    Admin-Service:
       url: http://localhost:8081
-     Customer-Service:
+    Customer-Service:
       url: http://localhost:8082
-     Order-Service:
+    Order-Service:
       url: http://localhost:8083
-     Payment-Service:
+    Payment-Service:
       url: http://localhost:8084
-     Washer-Service :
-     url: http://localhost:8085
-      
-     
-       
-
-     
+    Washer-Service:
+      url: http://localhost:8085
