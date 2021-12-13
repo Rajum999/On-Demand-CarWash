@@ -20,6 +20,7 @@ import com.Customer.Exception.ApiRequestException;
 import com.Customer.Model.Customer;
 import com.Customer.Model.Order;
 import com.Customer.Model.PaymentPOJO;
+import com.Customer.Model.Ratings;
 import com.Customer.Repository.CustomerRepository;
 import com.Customer.Service.CustomerService;
 
@@ -128,6 +129,14 @@ public class CustomerController {
 		return restTemplate.getForObject("http://localhost:8083/order/allorders", String.class);
 
 	}
+	
+	//Adding the ratings
+	@PostMapping("/addratings")
+	@ApiOperation("Giving the ratings to washer")
+	public String addRatings(@RequestBody Ratings ratings) {
+		return restTemplate.postForObject("http://localhost:8081/Admin/addrating", ratings,String.class);
+		
+	}
 
 	// Reading all the Ratings
 	@GetMapping("/ratings")
@@ -135,5 +144,14 @@ public class CustomerController {
 	public String getAllRatings() {
 		return restTemplate.getForObject("http://localhost:8081/Admin/allratings", String.class);
 	}
+	
+	@GetMapping("/allpacks")
+	@ApiOperation("Displaying the packs to the customer")
+	public String gettingPacks() {
+		return restTemplate.getForObject("http://localhost:8081/Admin/allpacks", String.class);
+		
+	}
+	
+	
 
 }
